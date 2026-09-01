@@ -1,0 +1,66 @@
+/* Logo Animation */
+header h1{
+    font-size:40px;
+    color:white;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px red;
+    }
+    to{
+        text-shadow:0 0 30px red, 0 0 50px red;
+    }
+}
+
+/* Hero Fade In */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Cards Hover Effect */
+.card{
+    background:#222;
+    width:300px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 20px red;
+}
+
+/* Button Animation */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#ff0000;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:8px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}

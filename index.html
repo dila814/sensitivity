@@ -1,0 +1,103 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPECT4 FORCE Sensitivity Store</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#0d0d0d;
+    color:white;
+    text-align:center;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    background:#1a1a1a;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px red;
+}
+
+h1{
+    color:red;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    margin:5px;
+}
+
+button:hover{
+    background:#cc0000;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SPECT4 FORCE</h1>
+    <h3>FF Sensitivity Store</h3>
+
+    <input type="number" id="general" placeholder="General">
+
+    <input type="number" id="reddot" placeholder="Red Dot">
+
+    <input type="number" id="scope2x" placeholder="2X Scope">
+
+    <input type="number" id="scope4x" placeholder="4X Scope">
+
+    <input type="number" id="awm" placeholder="AWM Scope">
+
+    <input type="number" id="freelook" placeholder="Free Look">
+
+    <br>
+
+    <button onclick="saveData()">Save</button>
+    <button onclick="loadData()">Load</button>
+</div>
+
+<script>
+function saveData(){
+    localStorage.setItem("general", document.getElementById("general").value);
+    localStorage.setItem("reddot", document.getElementById("reddot").value);
+    localStorage.setItem("scope2x", document.getElementById("scope2x").value);
+    localStorage.setItem("scope4x", document.getElementById("scope4x").value);
+    localStorage.setItem("awm", document.getElementById("awm").value);
+    localStorage.setItem("freelook", document.getElementById("freelook").value);
+
+    alert("Sensitivity Saved!");
+}
+
+function loadData(){
+    document.getElementById("general").value = localStorage.getItem("general") || "";
+    document.getElementById("reddot").value = localStorage.getItem("reddot") || "";
+    document.getElementById("scope2x").value = localStorage.getItem("scope2x") || "";
+    document.getElementById("scope4x").value = localStorage.getItem("scope4x") || "";
+    document.getElementById("awm").value = localStorage.getItem("awm") || "";
+    document.getElementById("freelook").value = localStorage.getItem("freelook") || "";
+}
+
+window.onload = loadData;
+</script>
+
+</body>
+</html>

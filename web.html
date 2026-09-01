@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Reg Generator</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    padding-top:100px;
+}
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🖱 Mouse Reg Generator</h1>
+<p>Generate a sample .reg file.</p>
+
+<button onclick="downloadReg()">Generate REG</button>
+
+<script>
+function downloadReg(){
+
+const reg=`Windows Registry Editor Version 5.00
+
+; Sample registry file
+; Edit values before using.
+
+[HKEY_CURRENT_USER\\Control Panel\\Mouse]
+"MouseSpeed"="1"
+`;
+
+const blob=new Blob([reg],{type:"application/octet-stream"});
+const a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="MouseSettings.reg";
+a.click();
+
+}
+</script>
+
+</body>
+</html>
